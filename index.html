@@ -1,0 +1,1371 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<title>٤ صور ١ كلمة</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0A0A14;
+  --shell: #12121F;
+  --surface: #1C1C30;
+  --surface2: #252540;
+  --border: rgba(255,255,255,0.07);
+  --border2: rgba(255,255,255,0.13);
+  --text: #F0F0F8;
+  --muted: #8888AA;
+  --gold: #F5A623;
+  --gold2: #FFD080;
+  --golddim: rgba(245,166,35,0.18);
+  --red: #FF4466;
+  --green: #22DD88;
+  --blue: #4488FF;
+  --shadow: rgba(0,0,0,0.6);
+}
+[data-theme="light"] {
+  --bg: #E8EBF3;
+  --shell: #F5F7FC;
+  --surface: #EAEDF5;
+  --surface2: #DDE2F0;
+  --border: rgba(0,0,0,0.07);
+  --border2: rgba(0,0,0,0.13);
+  --text: #1A1A30;
+  --muted: #6666AA;
+  --gold: #D48000;
+  --gold2: #E09000;
+  --golddim: rgba(212,128,0,0.15);
+  --red: #DD2244;
+  --green: #11AA55;
+  --blue: #2266DD;
+  --shadow: rgba(0,0,0,0.12);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0; padding: 0;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Tajawal', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ═══════════════════════════ APP SHELL ═══════════════════════════ */
+.app {
+  width: 100%;
+  height: 100%;
+  max-width: 420px;
+  max-height: 900px;
+  background: var(--shell);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+@media (min-width: 440px) {
+  .app {
+    border-radius: 36px;
+    height: 94vh;
+    box-shadow: 0 30px 80px var(--shadow), 0 0 0 1px var(--border2);
+  }
+}
+
+/* ═══════════════════════════ SCREENS ═══════════════════════════ */
+.scr {
+  position: absolute;
+  inset: 0;
+  display: none;
+  flex-direction: column;
+  padding: 0;
+  overflow: hidden;
+}
+.scr.on { display: flex; }
+
+/* ═══════════════════════════ HOME SCREEN ═══════════════════════════ */
+#scr-home {
+  padding: 20px 18px 24px;
+  gap: 0;
+}
+
+.home-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.coins-pill {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  background: var(--golddim);
+  border: 1.5px solid rgba(245,166,35,0.35);
+  padding: 8px 14px;
+  border-radius: 50px;
+  font-weight: 800;
+  font-size: 15px;
+  color: var(--gold);
+}
+.coins-pill .gem { font-size: 16px; }
+
+.header-actions { display: flex; gap: 8px; }
+
+.ico-btn {
+  width: 42px;
+  height: 42px;
+  background: var(--surface);
+  border: 1.5px solid var(--border2);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  font-size: 18px;
+  transition: transform 0.15s, background 0.2s;
+}
+.ico-btn:active { transform: scale(0.88); background: var(--surface2); }
+
+.hero {
+  text-align: center;
+  padding: 10px 0 20px;
+}
+.hero-logo {
+  font-size: 52px;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+.hero-title {
+  font-size: 28px;
+  font-weight: 900;
+  background: linear-gradient(135deg, var(--gold), var(--gold2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.hero-sub {
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 5px;
+}
+
+.stats-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+.stat-box {
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: 18px;
+  padding: 14px 10px;
+  text-align: center;
+}
+.stat-val {
+  font-size: 26px;
+  font-weight: 900;
+  color: var(--gold);
+  line-height: 1;
+}
+.stat-lbl {
+  font-size: 11px;
+  color: var(--muted);
+  margin-top: 5px;
+}
+
+.btn-play {
+  background: linear-gradient(135deg, var(--gold) 0%, var(--gold2) 100%);
+  color: #1A0A00;
+  border: none;
+  border-radius: 20px;
+  padding: 17px;
+  font-family: inherit;
+  font-size: 19px;
+  font-weight: 900;
+  cursor: pointer;
+  width: 100%;
+  box-shadow: 0 6px 24px rgba(245,166,35,0.4);
+  transition: transform 0.15s, box-shadow 0.15s;
+  margin-bottom: 12px;
+}
+.btn-play:active { transform: scale(0.97); box-shadow: 0 2px 10px rgba(245,166,35,0.3); }
+
+.btn-map {
+  background: var(--surface);
+  color: var(--text);
+  border: 1.5px solid var(--border2);
+  border-radius: 18px;
+  padding: 14px;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  width: 100%;
+  transition: transform 0.15s, background 0.2s;
+}
+.btn-map:active { transform: scale(0.97); background: var(--surface2); }
+
+/* ═══════════════════════════ GAME SCREEN ═══════════════════════════ */
+#scr-game {
+  padding: 0;
+}
+
+.game-topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 16px 12px;
+  flex-shrink: 0;
+}
+.game-level {
+  font-size: 15px;
+  font-weight: 800;
+  background: var(--surface);
+  border: 1.5px solid var(--border2);
+  padding: 7px 14px;
+  border-radius: 50px;
+}
+.game-coins {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 800;
+  font-size: 14px;
+  color: var(--gold);
+}
+
+/* الصور - نسبة عرض/ارتفاع صحيحة */
+.photos-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  padding: 0 14px;
+  flex-shrink: 0;
+}
+.photo-cell {
+  aspect-ratio: 1 / 1;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 2px solid var(--border2);
+  background: var(--surface);
+  position: relative;
+  transition: border-color 0.2s, transform 0.2s;
+}
+.photo-cell img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: opacity 0.3s, transform 0.3s;
+}
+.photo-cell .img-loading {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  background: var(--surface);
+  transition: opacity 0.3s;
+}
+.photo-cell img.loaded + .img-loading { opacity: 0; pointer-events: none; }
+.photo-cell.correct { border-color: var(--green) !important; transform: scale(1.02); }
+.photo-cell.wrong { border-color: var(--red) !important; animation: shake 0.45s ease; }
+
+/* خانات الإجابة */
+.answer-area {
+  padding: 10px 16px 6px;
+  flex-shrink: 0;
+}
+.answer-slots {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+.slot {
+  min-width: 42px;
+  height: 48px;
+  background: var(--surface);
+  border: 2px solid var(--border2);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  font-weight: 900;
+  cursor: pointer;
+  padding: 0 6px;
+  box-shadow: 0 3px 0 rgba(0,0,0,0.2);
+  transition: all 0.12s;
+  position: relative;
+}
+.slot.filled {
+  border-color: var(--gold);
+  background: var(--golddim);
+  color: var(--text);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 0 rgba(245,166,35,0.3);
+}
+.slot.wrong {
+  border-color: var(--red) !important;
+  background: rgba(255,68,102,0.12) !important;
+  color: var(--red) !important;
+  animation: shake 0.4s ease;
+}
+
+.error-msg {
+  text-align: center;
+  color: var(--red);
+  font-size: 13px;
+  font-weight: 700;
+  min-height: 20px;
+  margin-top: 6px;
+}
+
+/* الكيبورد */
+.keyboard-wrap {
+  margin-top: auto;
+  background: var(--surface);
+  border-top: 1.5px solid var(--border2);
+  border-radius: 24px 24px 0 0;
+  padding: 14px 12px 20px;
+  flex-shrink: 0;
+}
+.kb-row {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  margin-bottom: 7px;
+}
+.key {
+  flex: 1;
+  max-width: 46px;
+  height: 50px;
+  background: var(--shell);
+  border: 1.5px solid var(--border2);
+  border-radius: 11px;
+  font-family: inherit;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text);
+  cursor: pointer;
+  box-shadow: 0 3px 0 var(--border2);
+  transition: all 0.06s;
+  display: flex; align-items: center; justify-content: center;
+}
+.key:active { transform: translateY(2px); box-shadow: none; }
+.key.used { opacity: 0.1; pointer-events: none; }
+
+.kb-actions {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 8px;
+}
+.kb-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 11px 20px;
+  border-radius: 14px;
+  border: none;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.1s;
+}
+.kb-btn:active { transform: scale(0.94); }
+.kb-del { background: #331122; color: var(--red); border: 1.5px solid rgba(255,68,102,0.3); }
+.kb-hint { background: var(--golddim); color: var(--gold); border: 1.5px solid rgba(245,166,35,0.4); }
+
+/* ═══════════════════════════ MAP SCREEN ═══════════════════════════ */
+#scr-map {
+  padding: 18px 16px;
+  overflow-y: auto;
+}
+.map-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 6px;
+}
+.map-title {
+  font-size: 18px;
+  font-weight: 900;
+}
+.map-hint {
+  font-size: 11px;
+  color: var(--muted);
+  margin-bottom: 16px;
+}
+.map-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 8px;
+}
+.map-cell {
+  aspect-ratio: 1;
+  background: var(--surface);
+  border: 2px solid var(--border);
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all 0.15s;
+  gap: 2px;
+}
+.map-cell .sub { font-size: 10px; }
+.map-cell.locked { opacity: 0.4; cursor: not-allowed; }
+.map-cell.done { border-color: var(--green); color: var(--green); }
+.map-cell.active { border-color: var(--gold); color: var(--gold); background: var(--golddim); }
+.map-cell:not(.locked):active { transform: scale(0.9); }
+
+/* ═══════════════════════════ OVERLAYS / MODALS ═══════════════════════════ */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.82);
+  backdrop-filter: blur(12px);
+  z-index: 200;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+.overlay.open { display: flex; }
+
+.modal {
+  background: var(--shell);
+  border: 1.5px solid var(--border2);
+  border-radius: 28px;
+  padding: 26px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+}
+.modal h2 { font-size: 22px; font-weight: 900; margin-bottom: 6px; }
+
+.win-word-display {
+  font-size: 30px;
+  font-weight: 900;
+  background: var(--golddim);
+  border: 1.5px solid rgba(245,166,35,0.4);
+  border-radius: 16px;
+  padding: 14px;
+  margin: 18px 0;
+  color: var(--gold);
+  letter-spacing: 3px;
+}
+.reward-text {
+  font-size: 14px;
+  color: var(--muted);
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.setting-list { text-align: right; }
+.setting-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0;
+  border-bottom: 1px solid var(--border);
+}
+.setting-row:last-of-type { border-bottom: none; }
+.setting-lbl { font-size: 15px; font-weight: 700; }
+
+.switch {
+  position: relative;
+  width: 48px;
+  height: 26px;
+  display: inline-block;
+}
+.switch input { opacity:0; width:0; height:0; }
+.sw-track {
+  position: absolute;
+  inset: 0;
+  background: var(--surface2);
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background 0.25s;
+}
+.sw-track::before {
+  content: '';
+  position: absolute;
+  width: 20px; height: 20px;
+  left: 3px; top: 3px;
+  background: white;
+  border-radius: 50%;
+  transition: transform 0.25s;
+}
+input:checked + .sw-track { background: var(--green); }
+input:checked + .sw-track::before { transform: translateX(22px); }
+
+/* ═══════════════════════════ SHARED BUTTONS ═══════════════════════════ */
+.btn-primary {
+  background: linear-gradient(135deg, var(--gold), var(--gold2));
+  color: #1A0800;
+  border: none;
+  border-radius: 18px;
+  padding: 16px;
+  font-family: inherit;
+  font-size: 17px;
+  font-weight: 800;
+  cursor: pointer;
+  width: 100%;
+  box-shadow: 0 4px 18px rgba(245,166,35,0.35);
+  margin-bottom: 10px;
+  transition: transform 0.12s;
+}
+.btn-primary:active { transform: scale(0.97); }
+.btn-sec {
+  background: var(--surface);
+  color: var(--text);
+  border: 1.5px solid var(--border2);
+  border-radius: 16px;
+  padding: 13px;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  width: 100%;
+  transition: transform 0.12s, background 0.2s;
+}
+.btn-sec:active { transform: scale(0.97); background: var(--surface2); }
+
+/* ═══════════════════════════ ANIMATIONS ═══════════════════════════ */
+@keyframes shake {
+  0%,100%{transform:translateX(0)}
+  15%,55%{transform:translateX(-7px)}
+  35%,75%{transform:translateX(7px)}
+}
+@keyframes pop {
+  0%{transform:scale(1)}
+  40%{transform:scale(1.15)}
+  100%{transform:scale(1)}
+}
+@keyframes fadeSlide {
+  from{opacity:0;transform:translateY(10px)}
+  to{opacity:1;transform:translateY(0)}
+}
+.anim-pop { animation: pop 0.35s ease; }
+.anim-fade { animation: fadeSlide 0.3s ease; }
+
+/* Progress bar */
+.level-progress {
+  height: 3px;
+  background: var(--surface2);
+  margin: 0 16px 10px;
+  border-radius: 50px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.level-progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, var(--gold), var(--gold2));
+  border-radius: 50px;
+  transition: width 0.5s ease;
+}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <!-- ─── HOME ─── -->
+  <div id="scr-home" class="scr on">
+    <div class="home-header">
+      <div class="coins-pill">
+        <span class="gem">💎</span>
+        <span class="coin-txt">150</span>
+      </div>
+      <div class="header-actions">
+        <div class="ico-btn" onclick="toggleTheme()">🌓</div>
+        <div class="ico-btn" onclick="openModal('mod-settings')">⚙️</div>
+      </div>
+    </div>
+
+    <div class="hero">
+      <div class="hero-logo">🧩</div>
+      <h1 class="hero-title">٤ صور ١ كلمة</h1>
+      <p class="hero-sub">خمّن الكلمة من الصور الأربع</p>
+    </div>
+
+    <div class="stats-row">
+      <div class="stat-box">
+        <div class="stat-val" id="stat-done">0</div>
+        <div class="stat-lbl">مراحل محلولة</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-val" id="stat-streak">1</div>
+        <div class="stat-lbl">أيام متواصلة 🔥</div>
+      </div>
+    </div>
+
+    <button class="btn-play" onclick="startCurrentLevel()">▶ ابدأ اللعب</button>
+    <button class="btn-map" onclick="openMap()">🗺 خريطة المراحل</button>
+  </div>
+
+  <!-- ─── GAME ─── -->
+  <div id="scr-game" class="scr">
+    <div class="game-topbar">
+      <div class="ico-btn" onclick="goHome()">←</div>
+      <div class="game-level" id="game-title">المرحلة ١</div>
+      <div class="game-coins">💎 <span class="coin-txt">150</span></div>
+    </div>
+
+    <div class="level-progress">
+      <div class="level-progress-bar" id="progress-bar" style="width:3%"></div>
+    </div>
+
+    <div class="photos-grid" id="photos-grid">
+      <div class="photo-cell" id="p-0">
+        <img id="img-0" src="" alt="صورة 1" onload="imgLoaded(this)">
+        <div class="img-loading">🖼</div>
+      </div>
+      <div class="photo-cell" id="p-1">
+        <img id="img-1" src="" alt="صورة 2" onload="imgLoaded(this)">
+        <div class="img-loading">🖼</div>
+      </div>
+      <div class="photo-cell" id="p-2">
+        <img id="img-2" src="" alt="صورة 3" onload="imgLoaded(this)">
+        <div class="img-loading">🖼</div>
+      </div>
+      <div class="photo-cell" id="p-3">
+        <img id="img-3" src="" alt="صورة 4" onload="imgLoaded(this)">
+        <div class="img-loading">🖼</div>
+      </div>
+    </div>
+
+    <div class="answer-area">
+      <div class="answer-slots" id="answer-slots"></div>
+      <div class="error-msg" id="error-msg"></div>
+    </div>
+
+    <div class="keyboard-wrap">
+      <div class="kb-row" id="kb-r1"></div>
+      <div class="kb-row" id="kb-r2"></div>
+      <div class="kb-actions">
+        <button class="kb-btn kb-del" onclick="handleDelete()">⌫ حذف</button>
+        <button class="kb-btn kb-hint" onclick="handleHint()">💡 مساعدة (٣٠)</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── MAP ─── -->
+  <div id="scr-map" class="scr">
+    <div class="map-header">
+      <div class="ico-btn" onclick="goHome()">←</div>
+      <div class="map-title">🗺 خريطة المراحل</div>
+    </div>
+    <div class="map-hint">حل المراحل بالترتيب لفتح التالية • <span id="map-progress-txt"></span></div>
+    <div class="map-grid" id="map-grid"></div>
+  </div>
+
+  <!-- ─── WIN MODAL ─── -->
+  <div id="mod-win" class="overlay">
+    <div class="modal">
+      <h2 style="color:var(--green)">إجابة صحيحة! 🎉</h2>
+      <div class="win-word-display" id="win-word">---</div>
+      <p class="reward-text">🎁 حصلت على +٢٠ عملة ذهبية</p>
+      <button class="btn-primary" onclick="loadNextLevel()">المرحلة التالية ←</button>
+      <button class="btn-sec" onclick="closeModal('mod-win'); goHome()">الرئيسية</button>
+    </div>
+  </div>
+
+  <!-- ─── SETTINGS MODAL ─── -->
+  <div id="mod-settings" class="overlay">
+    <div class="modal">
+      <h2 style="margin-bottom:18px;">⚙️ الإعدادات</h2>
+      <div class="setting-list">
+        <div class="setting-row">
+          <span class="setting-lbl">المؤثرات الصوتية 🔊</span>
+          <label class="switch">
+            <input type="checkbox" id="set-sound" checked onchange="saveSettings()">
+            <span class="sw-track"></span>
+          </label>
+        </div>
+        <div class="setting-row">
+          <span class="setting-lbl">الاهتزاز 📳</span>
+          <label class="switch">
+            <input type="checkbox" id="set-vibrate" checked onchange="saveSettings()">
+            <span class="sw-track"></span>
+          </label>
+        </div>
+        <div class="setting-row">
+          <span class="setting-lbl">الوضع الفاتح ☀️</span>
+          <label class="switch">
+            <input type="checkbox" id="set-theme" onchange="toggleThemeSwitch()">
+            <span class="sw-track"></span>
+          </label>
+        </div>
+      </div>
+      <button class="btn-sec" style="margin-top:20px;" onclick="closeModal('mod-settings')">إغلاق</button>
+    </div>
+  </div>
+
+</div>
+
+<script>
+// ═══════════════════════════════════════════════════════
+//   قاعدة البيانات - ٣٠ مستوى
+//   الصور من Picsum Photos (موثوقة ولا تحتاج token)
+//   seed يحدد الصورة الثابتة
+// ═══════════════════════════════════════════════════════
+const DB = [
+  // كل مستوى: word = الكلمة الصحيحة، letters = الحروف في الكيبورد (12 حرف)
+  // imgs = 4 روابط صور (Picsum)
+  {
+    id:1, word:"ماء",
+    letters:"م ا ء ت ج ك س ف ل ن ر و",
+    imgs:[
+      "https://picsum.photos/seed/water1/400/400",
+      "https://picsum.photos/seed/water2/400/400",
+      "https://picsum.photos/seed/ocean3/400/400",
+      "https://picsum.photos/seed/river4/400/400"
+    ]
+  },
+  {
+    id:2, word:"نار",
+    letters:"ن ا ر ب ي ز ش ع ص ق خ د",
+    imgs:[
+      "https://picsum.photos/seed/fire1/400/400",
+      "https://picsum.photos/seed/fire2/400/400",
+      "https://picsum.photos/seed/flame3/400/400",
+      "https://picsum.photos/seed/hot4/400/400"
+    ]
+  },
+  {
+    id:3, word:"تفاح",
+    letters:"ت ف ا ح ر م ق ص غ ك ل ب",
+    imgs:[
+      "https://picsum.photos/seed/apple1/400/400",
+      "https://picsum.photos/seed/apple2/400/400",
+      "https://picsum.photos/seed/fruit3/400/400",
+      "https://picsum.photos/seed/apple4/400/400"
+    ]
+  },
+  {
+    id:4, word:"شتاء",
+    letters:"ش ت ا ء ن س ز و خ ج م ك",
+    imgs:[
+      "https://picsum.photos/seed/winter1/400/400",
+      "https://picsum.photos/seed/snow2/400/400",
+      "https://picsum.photos/seed/winter3/400/400",
+      "https://picsum.photos/seed/cold4/400/400"
+    ]
+  },
+  {
+    id:5, word:"بحر",
+    letters:"ب ح ر م ن س ع ف ق ك ل و",
+    imgs:[
+      "https://picsum.photos/seed/sea1/400/400",
+      "https://picsum.photos/seed/beach2/400/400",
+      "https://picsum.photos/seed/ocean3b/400/400",
+      "https://picsum.photos/seed/wave4/400/400"
+    ]
+  },
+  {
+    id:6, word:"شمس",
+    letters:"ش م س ق ع و ن د خ ب ز ا",
+    imgs:[
+      "https://picsum.photos/seed/sun1/400/400",
+      "https://picsum.photos/seed/sunrise2/400/400",
+      "https://picsum.photos/seed/sunny3/400/400",
+      "https://picsum.photos/seed/sunshine4/400/400"
+    ]
+  },
+  {
+    id:7, word:"كتاب",
+    letters:"ك ت ا ب م ن ر س ع ف ق ه",
+    imgs:[
+      "https://picsum.photos/seed/book1/400/400",
+      "https://picsum.photos/seed/books2/400/400",
+      "https://picsum.photos/seed/library3/400/400",
+      "https://picsum.photos/seed/read4/400/400"
+    ]
+  },
+  {
+    id:8, word:"قهوة",
+    letters:"ق ه و ة م ن ر س ع ف ك ل",
+    imgs:[
+      "https://picsum.photos/seed/coffee1/400/400",
+      "https://picsum.photos/seed/coffee2/400/400",
+      "https://picsum.photos/seed/espresso3/400/400",
+      "https://picsum.photos/seed/cafe4/400/400"
+    ]
+  },
+  {
+    id:9, word:"ساعة",
+    letters:"س ا ع ة م ن ر ق ف ك ل ب",
+    imgs:[
+      "https://picsum.photos/seed/clock1/400/400",
+      "https://picsum.photos/seed/watch2/400/400",
+      "https://picsum.photos/seed/time3/400/400",
+      "https://picsum.photos/seed/clock4/400/400"
+    ]
+  },
+  {
+    id:10, word:"ذهب",
+    letters:"ذ ه ب م ن ر س ع ف ق ك ل",
+    imgs:[
+      "https://picsum.photos/seed/gold1/400/400",
+      "https://picsum.photos/seed/jewelry2/400/400",
+      "https://picsum.photos/seed/golden3/400/400",
+      "https://picsum.photos/seed/treasure4/400/400"
+    ]
+  },
+  {
+    id:11, word:"كلب",
+    letters:"ك ل ب م ن ر س ع ف ق ح ج",
+    imgs:[
+      "https://picsum.photos/seed/dog1/400/400",
+      "https://picsum.photos/seed/puppy2/400/400",
+      "https://picsum.photos/seed/dog3/400/400",
+      "https://picsum.photos/seed/hound4/400/400"
+    ]
+  },
+  {
+    id:12, word:"قطة",
+    letters:"ق ط ة م ن ر س ع ف ب ج ح",
+    imgs:[
+      "https://picsum.photos/seed/cat1/400/400",
+      "https://picsum.photos/seed/kitten2/400/400",
+      "https://picsum.photos/seed/cat3/400/400",
+      "https://picsum.photos/seed/feline4/400/400"
+    ]
+  },
+  {
+    id:13, word:"خبز",
+    letters:"خ ب ز م ن ر س ع ف ق ك ل",
+    imgs:[
+      "https://picsum.photos/seed/bread1/400/400",
+      "https://picsum.photos/seed/bakery2/400/400",
+      "https://picsum.photos/seed/loaf3/400/400",
+      "https://picsum.photos/seed/bread4/400/400"
+    ]
+  },
+  {
+    id:14, word:"طائرة",
+    letters:"ط ا ئ ر ة م ن س و ع ف ب",
+    imgs:[
+      "https://picsum.photos/seed/plane1/400/400",
+      "https://picsum.photos/seed/aircraft2/400/400",
+      "https://picsum.photos/seed/sky3/400/400",
+      "https://picsum.photos/seed/flight4/400/400"
+    ]
+  },
+  {
+    id:15, word:"شجرة",
+    letters:"ش ج ر ة م ن س و ع ف ب ق",
+    imgs:[
+      "https://picsum.photos/seed/tree1/400/400",
+      "https://picsum.photos/seed/forest2/400/400",
+      "https://picsum.photos/seed/tree3/400/400",
+      "https://picsum.photos/seed/nature4/400/400"
+    ]
+  },
+  {
+    id:16, word:"سيارة",
+    letters:"س ي ا ر ة ن و ع ف ق ك ب",
+    imgs:[
+      "https://picsum.photos/seed/car1/400/400",
+      "https://picsum.photos/seed/auto2/400/400",
+      "https://picsum.photos/seed/vehicle3/400/400",
+      "https://picsum.photos/seed/car4/400/400"
+    ]
+  },
+  {
+    id:17, word:"جبل",
+    letters:"ج ب ل م ن ر س ع ف ق ك ه",
+    imgs:[
+      "https://picsum.photos/seed/mountain1/400/400",
+      "https://picsum.photos/seed/peak2/400/400",
+      "https://picsum.photos/seed/mount3/400/400",
+      "https://picsum.photos/seed/alpine4/400/400"
+    ]
+  },
+  {
+    id:18, word:"زهرة",
+    letters:"ز ه ر ة م ن س ع ف ق ك ب",
+    imgs:[
+      "https://picsum.photos/seed/flower1/400/400",
+      "https://picsum.photos/seed/rose2/400/400",
+      "https://picsum.photos/seed/bloom3/400/400",
+      "https://picsum.photos/seed/petal4/400/400"
+    ]
+  },
+  {
+    id:19, word:"نجمة",
+    letters:"ن ج م ة س ي ا ر ف ق ك ب",
+    imgs:[
+      "https://picsum.photos/seed/star1/400/400",
+      "https://picsum.photos/seed/night2/400/400",
+      "https://picsum.photos/seed/galaxy3/400/400",
+      "https://picsum.photos/seed/cosmos4/400/400"
+    ]
+  },
+  {
+    id:20, word:"مطر",
+    letters:"م ط ر ب ن س ع ف ق ك ل ج",
+    imgs:[
+      "https://picsum.photos/seed/rain1/400/400",
+      "https://picsum.photos/seed/storm2/400/400",
+      "https://picsum.photos/seed/rain3/400/400",
+      "https://picsum.photos/seed/drops4/400/400"
+    ]
+  },
+  {
+    id:21, word:"قمر",
+    letters:"ق م ر ب ن س ع ف ا ك ل ج",
+    imgs:[
+      "https://picsum.photos/seed/moon1/400/400",
+      "https://picsum.photos/seed/lunar2/400/400",
+      "https://picsum.photos/seed/night3/400/400",
+      "https://picsum.photos/seed/moon4/400/400"
+    ]
+  },
+  {
+    id:22, word:"سمكة",
+    letters:"س م ك ة ب ن ع ف ا ر ل ج",
+    imgs:[
+      "https://picsum.photos/seed/fish1/400/400",
+      "https://picsum.photos/seed/aqua2/400/400",
+      "https://picsum.photos/seed/fish3/400/400",
+      "https://picsum.photos/seed/marine4/400/400"
+    ]
+  },
+  {
+    id:23, word:"تفاحة",
+    letters:"ت ف ا ح ة ب ن ع ر ك ل م",
+    imgs:[
+      "https://picsum.photos/seed/redapple1/400/400",
+      "https://picsum.photos/seed/greenapple2/400/400",
+      "https://picsum.photos/seed/fruits3/400/400",
+      "https://picsum.photos/seed/harvest4/400/400"
+    ]
+  },
+  {
+    id:24, word:"حصان",
+    letters:"ح ص ا ن ب ف ع ك ل م ر ج",
+    imgs:[
+      "https://picsum.photos/seed/horse1/400/400",
+      "https://picsum.photos/seed/equine2/400/400",
+      "https://picsum.photos/seed/horse3/400/400",
+      "https://picsum.photos/seed/stallion4/400/400"
+    ]
+  },
+  {
+    id:25, word:"طفل",
+    letters:"ط ف ل م ن ر س ع ب ق ك ه",
+    imgs:[
+      "https://picsum.photos/seed/child1/400/400",
+      "https://picsum.photos/seed/baby2/400/400",
+      "https://picsum.photos/seed/kid3/400/400",
+      "https://picsum.photos/seed/toddler4/400/400"
+    ]
+  },
+  {
+    id:26, word:"مدينة",
+    letters:"م د ي ن ة ب س ع ف ق ك ر",
+    imgs:[
+      "https://picsum.photos/seed/city1/400/400",
+      "https://picsum.photos/seed/urban2/400/400",
+      "https://picsum.photos/seed/metro3/400/400",
+      "https://picsum.photos/seed/skyline4/400/400"
+    ]
+  },
+  {
+    id:27, word:"طعام",
+    letters:"ط ع ا م ب ن ر س ك ف ق ل",
+    imgs:[
+      "https://picsum.photos/seed/food1/400/400",
+      "https://picsum.photos/seed/meal2/400/400",
+      "https://picsum.photos/seed/dish3/400/400",
+      "https://picsum.photos/seed/cuisine4/400/400"
+    ]
+  },
+  {
+    id:28, word:"مسجد",
+    letters:"م س ج د ب ن ع ف ق ك ر ل",
+    imgs:[
+      "https://picsum.photos/seed/mosque1/400/400",
+      "https://picsum.photos/seed/minaret2/400/400",
+      "https://picsum.photos/seed/islam3/400/400",
+      "https://picsum.photos/seed/pray4/400/400"
+    ]
+  },
+  {
+    id:29, word:"طريق",
+    letters:"ط ر ي ق ب ن ع ف ا م ك س",
+    imgs:[
+      "https://picsum.photos/seed/road1/400/400",
+      "https://picsum.photos/seed/highway2/400/400",
+      "https://picsum.photos/seed/path3/400/400",
+      "https://picsum.photos/seed/street4/400/400"
+    ]
+  },
+  {
+    id:30, word:"برتقال",
+    letters:"ب ر ت ق ا ل م ن ع ف ك ه",
+    imgs:[
+      "https://picsum.photos/seed/orange1/400/400",
+      "https://picsum.photos/seed/citrus2/400/400",
+      "https://picsum.photos/seed/orange3/400/400",
+      "https://picsum.photos/seed/tropical4/400/400"
+    ]
+  }
+];
+
+// ═══════════════════════════════════════════════════════
+//   GAME STATE
+// ═══════════════════════════════════════════════════════
+let G = {
+  coins: 150,
+  idx: 0,
+  highest: 0,
+  streak: 1,
+  answer: [],
+  settings: { sound: true, vibrate: true }
+};
+
+// ═══════════════════════════════════════════════════════
+//   INIT
+// ═══════════════════════════════════════════════════════
+window.onload = () => {
+  loadData();
+  applyTheme();
+  syncUI();
+};
+
+function imgLoaded(el) {
+  el.classList.add('loaded');
+}
+
+// ═══════════════════════════════════════════════════════
+//   SAVE / LOAD
+// ═══════════════════════════════════════════════════════
+function saveData() {
+  try {
+    localStorage.setItem('q4w1', JSON.stringify({
+      coins: G.coins, idx: G.idx, highest: G.highest,
+      streak: G.streak, settings: G.settings
+    }));
+  } catch(e){}
+}
+
+function loadData() {
+  try {
+    const d = JSON.parse(localStorage.getItem('q4w1') || 'null');
+    if(d) {
+      G.coins    = d.coins    ?? 150;
+      G.idx      = d.idx      ?? 0;
+      G.highest  = d.highest  ?? 0;
+      G.streak   = d.streak   ?? 1;
+      G.settings = d.settings ?? {sound:true, vibrate:true};
+    }
+  } catch(e){}
+  document.getElementById('set-sound').checked   = G.settings.sound;
+  document.getElementById('set-vibrate').checked = G.settings.vibrate;
+}
+
+// ═══════════════════════════════════════════════════════
+//   UI HELPERS
+// ═══════════════════════════════════════════════════════
+function syncUI() {
+  document.querySelectorAll('.coin-txt').forEach(el => el.textContent = G.coins);
+  document.getElementById('stat-done').textContent   = G.highest;
+  document.getElementById('stat-streak').textContent = G.streak;
+}
+
+function showScreen(id) {
+  document.querySelectorAll('.scr').forEach(s => s.classList.remove('on'));
+  const el = document.getElementById(id);
+  el.classList.add('on');
+  el.classList.add('anim-fade');
+  setTimeout(() => el.classList.remove('anim-fade'), 350);
+}
+
+function goHome() { showScreen('scr-home'); syncUI(); }
+
+function openModal(id)  { document.getElementById(id).classList.add('open'); }
+function closeModal(id) { document.getElementById(id).classList.remove('open'); }
+
+// ═══════════════════════════════════════════════════════
+//   LEVEL START
+// ═══════════════════════════════════════════════════════
+function startCurrentLevel() { startLevel(G.idx); }
+
+function startLevel(idx) {
+  if(idx >= DB.length) {
+    alert('🏆 رائع! لقد أنهيت جميع المراحل!');
+    goHome();
+    return;
+  }
+
+  G.idx = idx;
+  const lv = DB[idx];
+
+  // ─ عنوان المرحلة
+  document.getElementById('game-title').textContent = `المرحلة ${lv.id}`;
+  document.getElementById('error-msg').textContent  = '';
+
+  // ─ شريط التقدم
+  const pct = Math.max(3, Math.round((idx / DB.length) * 100));
+  document.getElementById('progress-bar').style.width = pct + '%';
+
+  // ─ تحميل الصور
+  for(let i = 0; i < 4; i++) {
+    const img  = document.getElementById(`img-${i}`);
+    const cell = document.getElementById(`p-${i}`);
+    img.classList.remove('loaded');
+    cell.className = 'photo-cell';
+    img.src = lv.imgs[i];
+  }
+
+  // ─ تهيئة الإجابة
+  G.answer = Array.from({length: lv.word.length}, () => ({ch:'', kid:''}));
+
+  renderSlots();
+  renderKeys(lv.letters);
+  showScreen('scr-game');
+}
+
+// ═══════════════════════════════════════════════════════
+//   SLOTS
+// ═══════════════════════════════════════════════════════
+function renderSlots() {
+  const wrap = document.getElementById('answer-slots');
+  wrap.innerHTML = '';
+  G.answer.forEach((s, i) => {
+    const d = document.createElement('div');
+    d.className = 'slot' + (s.ch ? ' filled' : '');
+    d.textContent = s.ch;
+    d.onclick = () => removeAt(i);
+    wrap.appendChild(d);
+  });
+}
+
+// ═══════════════════════════════════════════════════════
+//   KEYBOARD
+// ═══════════════════════════════════════════════════════
+function renderKeys(lettersStr) {
+  const keys = lettersStr.split(' ');
+  const r1 = document.getElementById('kb-r1');
+  const r2 = document.getElementById('kb-r2');
+  r1.innerHTML = r2.innerHTML = '';
+
+  keys.forEach((ch, idx) => {
+    const btn = document.createElement('button');
+    btn.className = 'key';
+    btn.textContent = ch;
+    btn.id = `k-${idx}`;
+    btn.onclick = () => pressKey(ch, `k-${idx}`);
+    if(G.answer.some(s => s.kid === `k-${idx}`)) btn.classList.add('used');
+    (idx < 6 ? r1 : r2).appendChild(btn);
+  });
+}
+
+function pressKey(ch, kid) {
+  const empty = G.answer.findIndex(s => s.ch === '');
+  if(empty === -1) return;
+  G.answer[empty] = {ch, kid};
+  const btn = document.getElementById(kid);
+  if(btn) btn.classList.add('used');
+  renderSlots();
+  vibe([35]);
+  if(G.answer.every(s => s.ch !== '')) setTimeout(checkAnswer, 120);
+}
+
+function removeAt(i) {
+  if(!G.answer[i] || !G.answer[i].ch) return;
+  const btn = document.getElementById(G.answer[i].kid);
+  if(btn) btn.classList.remove('used');
+  G.answer[i] = {ch:'', kid:''};
+  renderSlots();
+  vibe([25]);
+}
+
+function handleDelete() {
+  for(let i = G.answer.length - 1; i >= 0; i--) {
+    if(G.answer[i].ch) { removeAt(i); break; }
+  }
+}
+
+// ═══════════════════════════════════════════════════════
+//   HINT
+// ═══════════════════════════════════════════════════════
+function handleHint() {
+  if(G.coins < 30) {
+    document.getElementById('error-msg').textContent = '⚠️ رصيدك لا يكفي للمساعدة!';
+    return;
+  }
+  const lv = DB[G.idx];
+  const empty = G.answer.findIndex(s => s.ch === '');
+  if(empty === -1) return;
+  G.coins -= 30;
+  G.answer[empty] = {ch: lv.word[empty], kid: 'hint'};
+  renderSlots();
+  syncUI();
+  saveData();
+  if(G.answer.every(s => s.ch)) setTimeout(checkAnswer, 120);
+}
+
+// ═══════════════════════════════════════════════════════
+//   CHECK ANSWER
+// ═══════════════════════════════════════════════════════
+function checkAnswer() {
+  const lv  = DB[G.idx];
+  const ans = G.answer.map(s => s.ch).join('');
+
+  if(ans === lv.word) {
+    // ✅ صح
+    tone('win');
+    vibe([80, 40, 80]);
+    for(let i = 0; i < 4; i++) document.getElementById(`p-${i}`).classList.add('correct');
+    if(G.idx >= G.highest) G.highest = G.idx + 1;
+    G.coins += 20;
+    saveData();
+    setTimeout(() => {
+      document.getElementById('win-word').textContent = lv.word;
+      openModal('mod-win');
+    }, 500);
+
+  } else {
+    // ❌ خطأ
+    tone('lose');
+    vibe([200]);
+    for(let i = 0; i < 4; i++) document.getElementById(`p-${i}`).classList.add('wrong');
+    document.querySelectorAll('.slot').forEach(s => s.classList.add('wrong'));
+    setTimeout(() => {
+      for(let i = 0; i < 4; i++) document.getElementById(`p-${i}`).classList.remove('wrong');
+      G.answer.forEach(s => {
+        if(s.kid && s.kid !== 'hint') {
+          const b = document.getElementById(s.kid);
+          if(b) b.classList.remove('used');
+        }
+      });
+      const lv2 = DB[G.idx];
+      G.answer = Array.from({length: lv2.word.length}, () => ({ch:'', kid:''}));
+      renderSlots();
+    }, 700);
+  }
+}
+
+function loadNextLevel() {
+  closeModal('mod-win');
+  startLevel(G.idx + 1);
+}
+
+// ═══════════════════════════════════════════════════════
+//   MAP
+// ═══════════════════════════════════════════════════════
+function openMap() {
+  const grid = document.getElementById('map-grid');
+  grid.innerHTML = '';
+  document.getElementById('map-progress-txt').textContent =
+    `${G.highest} / ${DB.length} مكتملة`;
+
+  DB.forEach((lv, idx) => {
+    const cell = document.createElement('div');
+    cell.className = 'map-cell';
+    const locked = idx > G.highest;
+    if(locked) {
+      cell.classList.add('locked');
+      cell.innerHTML = `<span>${lv.id}</span><span class="sub">🔒</span>`;
+    } else if(idx < G.highest) {
+      cell.classList.add('done');
+      cell.innerHTML = `<span>${lv.id}</span><span class="sub">✓</span>`;
+      cell.onclick = () => { startLevel(idx); };
+    } else {
+      cell.classList.add('active');
+      cell.innerHTML = `<span>${lv.id}</span><span class="sub">●</span>`;
+      cell.onclick = () => { startLevel(idx); };
+    }
+    grid.appendChild(cell);
+  });
+
+  showScreen('scr-map');
+}
+
+// ═══════════════════════════════════════════════════════
+//   AUDIO & VIBRATION
+// ═══════════════════════════════════════════════════════
+function tone(type) {
+  if(!G.settings.sound) return;
+  try {
+    const ctx = new (window.AudioContext || window.webkitAudioContext)();
+    const osc = ctx.createOscillator();
+    const gain = ctx.createGain();
+    osc.connect(gain);
+    gain.connect(ctx.destination);
+    if(type === 'win') {
+      osc.frequency.setValueAtTime(440, ctx.currentTime);
+      osc.frequency.exponentialRampToValueAtTime(880, ctx.currentTime + 0.15);
+      osc.frequency.exponentialRampToValueAtTime(1320, ctx.currentTime + 0.3);
+      gain.gain.setValueAtTime(0.18, ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.5);
+      osc.start(); osc.stop(ctx.currentTime + 0.5);
+    } else {
+      osc.type = 'sawtooth';
+      osc.frequency.setValueAtTime(200, ctx.currentTime);
+      osc.frequency.linearRampToValueAtTime(80, ctx.currentTime + 0.2);
+      gain.gain.setValueAtTime(0.15, ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.3);
+      osc.start(); osc.stop(ctx.currentTime + 0.3);
+    }
+  } catch(e){}
+}
+
+function vibe(pattern) {
+  if(G.settings.vibrate && navigator.vibrate) navigator.vibrate(pattern);
+}
+
+// ═══════════════════════════════════════════════════════
+//   SETTINGS & THEME
+// ═══════════════════════════════════════════════════════
+function saveSettings() {
+  G.settings.sound   = document.getElementById('set-sound').checked;
+  G.settings.vibrate = document.getElementById('set-vibrate').checked;
+  saveData();
+}
+
+function toggleTheme() {
+  const cur = document.documentElement.getAttribute('data-theme');
+  const next = cur === 'dark' ? 'light' : 'dark';
+  document.documentElement.setAttribute('data-theme', next);
+  document.getElementById('set-theme').checked = (next === 'light');
+  localStorage.setItem('theme4w1', next);
+}
+
+function toggleThemeSwitch() {
+  const light = document.getElementById('set-theme').checked;
+  document.documentElement.setAttribute('data-theme', light ? 'light' : 'dark');
+  localStorage.setItem('theme4w1', light ? 'light' : 'dark');
+}
+
+function applyTheme() {
+  const t = localStorage.getItem('theme4w1') || 'dark';
+  document.documentElement.setAttribute('data-theme', t);
+  document.getElementById('set-theme').checked = (t === 'light');
+}
+</script>
+</body>
+</html>
